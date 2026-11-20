@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "selector-class-pattern": "^(o|c|u)-[a-z0-9]+(?:-[a-z0-9]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?$",
+    "selector-max-id": 0,
+    "max-nesting-depth": 3,
+    "declaration-no-important": true
+  },
+  "overrides": [
+    {
+      "files": ["**/7-utilities/**/*.scss"],
+      "rules": {
+        "declaration-no-important": null
+      }
+    }
+  ]
+}
