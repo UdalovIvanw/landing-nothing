@@ -1,0 +1,37 @@
+mixin picture(name, alt, width, height, imgClass = '', isLcp = false)
+  - const basePath = '/images/' + name;
+    picture
+      source(srcset=`${basePath}.avif`, type='image/avif')
+      source(srcset=`${basePath}.webp`, type='image/webp')
+      img(
+        class=imgClass,
+        src=`${basePath}.png`,
+        alt=alt,
+        width=width,
+        height=height,
+        loading=isLcp ? null : 'lazy',
+        fetchpriority=isLcp ? 'high' : null
+      )
+
+mixin art-picture(sources, alt, width, height, pictureClass = '', imgClass = '', isLcp = false)
+  - const desk = '/images/' + sources.desktop;
+  - const tab = '/images/' + sources.tablet;
+  - const mob = '/images/' + sources.mobile;
+    picture(class=pictureClass)
+      source(media='(min-width: 1260px)', srcset=`${desk}.avif`, type='image/avif')
+      source(media='(min-width: 1260px)', srcset=`${desk}.webp`, type='image/webp')
+      source(media='(min-width: 1260px)', srcset=`${desk}.png`)
+      source(media='(min-width: 744px)', srcset=`${tab}.avif`, type='image/avif')
+      source(media='(min-width: 744px)', srcset=`${tab}.webp`, type='image/webp')
+      source(media='(min-width: 744px)', srcset=`${tab}.png`)
+      source(srcset=`${mob}.avif`, type='image/avif')
+      source(srcset=`${mob}.webp`, type='image/webp')
+      img(
+        class=imgClass,
+        src=`${mob}.png`,
+        alt=alt,
+        width=width,
+        height=height,
+        loading=isLcp ? null : 'lazy',
+        fetchpriority=isLcp ? 'high' : null
+      )
