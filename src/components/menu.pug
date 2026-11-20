@@ -1,10 +1,4 @@
--
-  const menuLinks = [
-      { label: 'Products', href: '#products' },
-      { label: 'Store', href: '#categories' },
-      { label: 'Login', href: '#contact' },
-      { label: 'Cart(0)', href: '#products' }
-  ]
+include ../data/navigation
 
 aside#menu.c-menu(aria-label='Site menu')
   .o-container.c-menu__inner
@@ -22,5 +16,5 @@ aside#menu.c-menu(aria-label='Site menu')
             a.c-menu__link(href=link.href)= link.label
 
     .c-menu__contact
-      a.c-menu__phone(href='tel:+12345555555') +1 234 5555-55-55
-      a.c-menu__order(href='tel:+12345555555') Call to order
+      a.c-menu__phone(href=contactDetails[0].href)= contactDetails[0].value
+      a.c-menu__order(href=contactDetails[0].href) Call to order
