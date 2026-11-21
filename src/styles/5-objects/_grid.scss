@@ -1,0 +1,58 @@
+@use 'sass:map';
+@use '../1-settings/tokens' as *;
+@use '../2-tools/mixins' as *;
+
+.o-container {
+  --grid-margin: #{map.get($grid, mobile-margin)};
+
+  width: 100%;
+  max-width: map.get($grid, max-width);
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+
+  @include mq(tablet) {
+    --grid-margin: #{map.get($grid, tablet-margin)};
+  }
+
+  @include mq(desktop) {
+    --grid-margin: #{map.get($grid, desktop-margin)};
+  }
+}
+
+.o-grid {
+  --grid-columns: #{map.get($grid, mobile-columns)};
+  --grid-gutter: #{map.get($grid, mobile-gutter)};
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+
+  @include mq(tablet) {
+    --grid-columns: #{map.get($grid, tablet-columns)};
+    --grid-gutter: #{map.get($grid, tablet-gutter)};
+  }
+
+  @include mq(desktop) {
+    --grid-columns: #{map.get($grid, desktop-columns)};
+    --grid-gutter: #{map.get($grid, desktop-gutter)};
+  }
+}
+
+.o-grid--debug {
+  position: relative;
+
+  //debug
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+            to right,
+            rgb(255 0 85 / 14%) 0,
+            rgb(255 0 85 / 14%) calc((100% - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns)),
+            transparent calc((100% - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns)),
+            transparent calc((100% - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) + var(--grid-gutter))
+    );
+  }
+}
