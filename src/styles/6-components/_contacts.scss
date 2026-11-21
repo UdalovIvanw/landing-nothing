@@ -1,0 +1,70 @@
+@use 'sass:map';
+@use '../1-settings/tokens' as *;
+@use '../2-tools/mixins' as *;
+
+.c-contacts__grid {
+  row-gap: 48px;
+
+  @include mq(tablet) {
+    row-gap: 80px;
+  }
+}
+
+.c-contacts__form {
+  grid-column: 1 / -1;
+
+  @include mq(desktop) {
+    grid-column: 1 / 6;
+  }
+}
+
+.c-contacts__field + .c-contacts__field {
+  margin-top: 16px;
+}
+
+.c-contacts__submit {
+  margin-top: 32px;
+}
+
+.c-contacts__info {
+  grid-column: 1 / -1;
+  font-style: normal;
+
+  @include mq(tablet) {
+    grid-column: 1 / 5;
+  }
+
+  @include mq(desktop) {
+    grid-column: 7 / 13;
+  }
+}
+
+.c-contacts__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.c-contacts__block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.c-contacts__label {
+  color: map.get($colors, muted);
+  font-family: $font-heading;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.c-contacts__value {
+  color: map.get($colors, contact-ink);
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.4;
+
+  &:hover {
+    opacity: 70%;
+  }
+}

@@ -1,0 +1,17 @@
+@use '../2-tools/mixins' as *;
+
+.c-recommended__grid {
+  row-gap: 40px;
+
+  @include mq(tablet) {
+    row-gap: 56px;
+  }
+}
+
+.c-recommended__item {
+  grid-column: 1 / -1;
+
+  @include mq(desktop) {
+    grid-column: span 4;
+  }
+}

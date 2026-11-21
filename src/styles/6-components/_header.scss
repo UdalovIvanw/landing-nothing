@@ -1,0 +1,108 @@
+@use 'sass:map';
+@use '../1-settings/tokens' as *;
+@use '../2-tools/mixins' as *;
+
+.c-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 24px;
+
+  @include mq(tablet) {
+    padding-block: 32px;
+  }
+}
+
+.c-header__logo {
+  display: block;
+  width: 125px;
+  height: 16px;
+  color: map.get($colors, ink);
+
+  @include mq(tablet) {
+    width: 172px;
+    height: 24px;
+  }
+}
+
+.c-header__logo-img {
+  width: 100%;
+  height: 100%;
+}
+
+.c-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @include mq(tablet) {
+    gap: 32px;
+  }
+}
+
+.c-header__phone,
+.c-header__menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: map.get($colors, ink);
+
+  @include mq(tablet) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.c-header__phone {
+  @include mq(desktop) {
+    &:hover,
+    &:focus-visible {
+      width: auto;
+      gap: 8px;
+    }
+
+    &:hover .c-header__phone-text,
+    &:focus-visible .c-header__phone-text {
+      display: block;
+    }
+  }
+}
+
+.c-header__phone-text {
+  display: none;
+  font-family: $font-phone;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.c-header__phone-icon,
+.c-header__menu-icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+
+  @include mq(tablet) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.c-header__menu {
+  @include mq(desktop) {
+    &:hover .c-header__burger-bar--top,
+    &:focus-visible .c-header__burger-bar--top {
+      width: 13px;
+    }
+
+    &:hover .c-header__burger-bar--bottom,
+    &:focus-visible .c-header__burger-bar--bottom {
+      width: 9px;
+    }
+  }
+}

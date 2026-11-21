@@ -1,0 +1,39 @@
+@use '../2-tools/mixins' as *;
+
+.c-categories__heading {
+  grid-column: 1 / -1;
+
+  @include mq(tablet) {
+    grid-column: 1 / 6;
+  }
+
+  @include mq(desktop) {
+    grid-column: 1 / 8;
+  }
+}
+
+.c-categories__list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include mq(tablet) {
+    gap: 56px;
+  }
+}
+
+.c-categories__footer {
+  margin-top: 40px;
+
+  @include mq(tablet) {
+    margin-top: 56px;
+  }
+}
+
+.c-categories__button {
+  grid-column: 1 / -1;
+
+  @include mq(desktop) {
+    grid-column: 1 / 5;
+  }
+}
