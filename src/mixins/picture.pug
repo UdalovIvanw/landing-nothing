@@ -1,11 +1,16 @@
 mixin picture(name, alt, width, height, sizes='100vw', imgClass='', isLcp=false)
-  - const basePath = '/assets/images/' + name
+  - const base = '/src/assets/images/' + name
+  - const avifSet = `${base}-400.avif 400w, ${base}-800.avif 800w, ${base}-1400.avif 1400w`
+  - const webpSet = `${base}-400.webp 400w, ${base}-800.webp 800w, ${base}-1400.webp 1400w`
+  - const pngSet = `${base}-400.png 400w, ${base}-800.png 800w, ${base}-1400.png 1400w`
   picture
-    source(srcset=`${basePath}.avif`, sizes=sizes, type="image/avif")
-    source(srcset=`${basePath}.webp`, sizes=sizes, type="image/webp")
+    source(srcset=avifSet, sizes=sizes, type="image/avif")
+    source(srcset=webpSet, sizes=sizes, type="image/webp")
     img(
       class=imgClass,
-      src=`${basePath}.png`,
+      src=`${base}-800.png`,
+      srcset=pngSet,
+      sizes=sizes,
       alt=alt,
       width=width,
       height=height,
@@ -13,10 +18,11 @@ mixin picture(name, alt, width, height, sizes='100vw', imgClass='', isLcp=false)
       fetchpriority=isLcp ? 'high' : null
     )
 
+
 mixin art-picture(sources, dimensions, alt, sizes='100vw', pictureClass='', imgClass='', isLcp=false)
-  - const desk = '/assets/images/' + sources.desktop
-  - const tab = '/assets/images/' + sources.tablet
-  - const mob = '/assets/images/' + sources.mobile
+  - const desk = '/src/assets/images/' + sources.desktop
+  - const tab = '/src/assets/images/' + sources.tablet
+  - const mob = '/src/assets/images/' + sources.mobile
   picture(class=pictureClass)
     source(
       media="(min-width: 1260px)",
