@@ -19,12 +19,5 @@ mixin category-card(category)
       .o-grid.c-category__gallery
         each photo in category.photos
           - const mediaClass = `c-category__media c-category__media--${photo.slot}`;
-          +art-picture(
-            photo.sources,
-            photo.dimensions,
-            photo.alt,
-            photo.sizes,
-            mediaClass,
-            'c-category__image',
-          )
+          +art-picture(photo.sources, photo.dimensions, photo.alt, mediaClass, 'c-category__image')
       h3.c-category__title= category.title

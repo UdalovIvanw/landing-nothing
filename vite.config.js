@@ -9,6 +9,9 @@ export default defineConfig(({ command, isPreview }) => {
 
   return {
     base,
+    build: {
+      assetsInlineLimit: 0,
+    },
     preview: {
       host: true,
     },
