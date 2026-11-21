@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use '../1-settings/tokens' as *;
+
+@mixin mq($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else if meta.type-of($breakpoint) == 'number' {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @error "breakpoint not found";
+  }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid map.get($colors, ink);
+    outline-offset: 4px;
+  }
+}
