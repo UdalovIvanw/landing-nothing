@@ -1,0 +1,113 @@
+extends ../layouts/main
+include ../mixins/picture
+include ../mixins/cards
+
+block variables
+  include ../data/navigation
+  include ../data/home
+
+block content
+  header.c-hero
+    +art-picture(
+      heroData.sources,
+      heroData.dimensions,
+      '',
+      '100vw',
+      'c-hero__media',
+      'c-hero__image',
+      true,
+    )
+    include ../components/header
+    .o-container.c-hero__container
+      .o-grid
+        h1.c-hero__title= heroData.title
+
+  main.c-main
+    section#products.c-section.c-recommended.c-page__section
+      .o-container
+        h2.c-section__title Recommended
+        ul.o-grid.c-recommended__grid
+          each item in products
+            +product-card(item)
+
+    section#categories.c-section.c-categories.c-page__section.c-page__section--categories
+      .o-container
+        .o-grid
+          h2.c-section__title.c-categories__heading Browse Nothing products by category
+        ul.c-categories__list
+          each category in categories
+            +category-card(category)
+        .o-grid.c-categories__footer
+          a.c-button.c-categories__button(href='#products') View all
+
+    .c-banner.c-page__banner
+      +picture(
+        'BeforeFooter',
+        'Close-up texture of Nothing audio speaker',
+        1260,
+        460,
+        '100vw',
+        'c-banner__image',
+      )
+
+    section#about.c-section.c-about.c-page__section.c-page__section--after-banner
+      .o-container
+        .o-grid
+          h2.c-section__title.c-about__title About us
+          .c-about__content
+            each paragraph in aboutParagraphs
+              p.c-about__paragraph= paragraph
+
+  footer#contact.c-section.c-contacts.c-page__section.c-page__section--contacts
+    .o-container
+      h2.c-section__title Contact us
+      .o-grid.c-contacts__grid
+        form.c-contacts__form(
+          action='mailto:hello@nothing.com',
+          method='post',
+          enctype='text/plain'
+        )
+          .c-field.c-contacts__field
+            label.u-visually-hidden(for='contact-name') Name
+            input#contact-name.c-field__control(
+              type='text',
+              name='name',
+              placeholder='Name',
+              autocomplete='name',
+              required
+            )
+          .c-field.c-contacts__field
+            label.u-visually-hidden(for='contact-email') Email
+            input#contact-email.c-field__control(
+              type='email',
+              name='email',
+              placeholder='Email',
+              autocomplete='email',
+              required
+            )
+          .c-field.c-contacts__field
+            label.u-visually-hidden(for='contact-message') Message
+            textarea#contact-message.c-field__control.c-field__control--textarea(
+              name='message',
+              placeholder='Message',
+              required
+            )
+          button.c-button.c-contacts__submit(type='submit') Send
+
+        address.c-contacts__info
+          ul.c-contacts__list
+            each item in contactDetails
+              li.c-contacts__block
+                span.c-contacts__label= item.label
+                a.c-contacts__value(
+                  href=item.href,
+                  target=item.external ? '_blank' : null,
+                  rel=item.external ? 'noopener noreferrer' : null
+                )
+                  if item.lines
+                    each line, idx in item.lines
+                      = line
+                      if idx < item.lines.length - 1
+                        br
+                  else
+                    = item.value
