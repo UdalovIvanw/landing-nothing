@@ -1,41 +1,37 @@
 $colors: (
-        page: #fff,
-        ink: #292929,
-        pressed: #111,
-        contact-ink: #191919,
-        muted: #9393a3,
-        placeholder: #7e7e83,
-        surface: #f8f8fa,
-        button-hover-border: #f0f1f4,
-        input-hover-border: #d5d7de,
-        menu: #e5e6e8,
-        error: #d93025,
+  page: #fff,
+  ink: #292929,
+  pressed: #111,
+  contact-ink: #191919,
+  muted: #9393a3,
+  placeholder: #7e7e83,
+  surface: #f8f8fa,
+  button-hover-border: #f0f1f4,
+  input-hover-border: #d5d7de,
+  menu: #e5e6e8,
+  error: #d93025,
 );
-
 $font-heading: 'Space Grotesk', helvetica, arial, sans-serif;
 $font-body: 'Space Mono', monospace;
 $font-phone: 'Inter', sans-serif;
-
 $breakpoints: (
-        tablet: 744px,
-        desktop: 1260px,
+  tablet: 744px,
+  desktop: 1260px,
 );
-
 $grid: (
-        max-width: 1260px,
-        mobile-columns: 2,
-        mobile-gutter: 20px,
-        mobile-margin: 20px,
-        tablet-columns: 6,
-        tablet-gutter: 24px,
-        tablet-margin: 72px,
-        desktop-columns: 12,
-        desktop-gutter: 24px,
-        desktop-margin: 120px,
+  max-width: 1260px,
+  mobile-columns: 2,
+  mobile-gutter: 20px,
+  mobile-margin: 20px,
+  tablet-columns: 6,
+  tablet-gutter: 24px,
+  tablet-margin: 72px,
+  desktop-columns: 12,
+  desktop-gutter: 24px,
+  desktop-margin: 120px,
 );
-
 $radii: (
-        square: 0,
-        image: 4px,
-        control: 8px,
+  square: 0,
+  image: 4px,
+  control: 8px,
 );

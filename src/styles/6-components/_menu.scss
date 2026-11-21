@@ -6,12 +6,12 @@
   overflow-y: auto;
   background-color: map.get($colors, menu);
   color: map.get($colors, ink);
-  opacity: 0;
+  opacity: 0%;
   visibility: hidden;
   pointer-events: none;
 
   &:target {
-    opacity: 1;
+    opacity: 100%;
     visibility: visible;
     pointer-events: auto;
   }

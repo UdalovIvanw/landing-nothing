@@ -1,6 +1,14 @@
 header.c-hero
-    +art-picture(heroData.sources, heroData.dimensions, '', '100vw', 'c-hero__media', 'c-hero__image', true)
-    include ../header
-    .o-container.c-hero__container
-        .o-grid
-            h1.c-hero__title= heroData.title
+  +art-picture(
+    heroData.sources,
+    heroData.dimensions,
+    '',
+    '100vw',
+    'c-hero__media',
+    'c-hero__image',
+    true,
+  )
+  include ../header
+  .o-container.c-hero__container
+    .o-grid
+      h1.c-hero__title= heroData.title

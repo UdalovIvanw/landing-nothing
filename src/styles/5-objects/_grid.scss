@@ -39,20 +39,22 @@
 }
 
 .o-grid--debug {
+  --col-span: calc((100% + var(--grid-gutter)) / var(--grid-columns));
+  --col-width: calc(var(--col-span) - var(--grid-gutter));
+
   position: relative;
 
-  //debug
   &::after {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
     background-image: repeating-linear-gradient(
-            to right,
-            rgb(255 0 85 / 14%) 0,
-            rgb(255 0 85 / 14%) calc((100% - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns)),
-            transparent calc((100% - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns)),
-            transparent calc((100% - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) + var(--grid-gutter))
+      to right,
+      rgb(255 0 85 / 14%) 0,
+      rgb(255 0 85 / 14%) var(--col-width),
+      transparent var(--col-width),
+      transparent var(--col-span)
     );
   }
 }
