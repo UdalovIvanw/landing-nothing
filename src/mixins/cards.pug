@@ -1,28 +1,29 @@
 include ./picture
 
 mixin product-card(item)
-  article.c-product-card.c-recommended__item
-    .c-product-card__image
-      - const imgMod = item.modifier ? `c-product-card__image-file c-product-card__image-file--${item.modifier}` : 'c-product-card__image-file';
-        +picture(item.image, item.title, 600, 600, imgMod)
-    h3.c-product-card__title= item.title
-    p.c-product-card__desc
-      if item.intro
-        span.c-product-card__intro= item.intro + ' '
-      = item.description
-    p.c-product-card__price= item.price
+  li.c-recommended__item
+    article.c-product-card
+      .c-product-card__image
+        - const imgMod = item.modifier ? `c-product-card__image-file c-product-card__image-file--${item.modifier}` : 'c-product-card__image-file';
+        +picture(item.image, item.title, 600, 600, item.sizes, imgMod)
+      h3.c-product-card__title= item.title
+      p.c-product-card__desc
+        if item.intro
+          span.c-product-card__intro= item.intro + ' '
+        = item.description
+      p.c-product-card__price= item.price
 
 mixin category-card(category)
-  - const cardClass = category.reversed ? 'c-category c-category--reversed c-categories__item' : 'c-category c-categories__item';
-    article(class=cardClass)
+  li.c-categories__item
+    article.c-category
       .o-grid.c-category__gallery
         each photo in category.photos
           - const imgClass = `c-category__image c-category__image--${photo.slot}`;
           +art-picture(
             photo.sources,
+            photo.dimensions,
             photo.alt,
-            photo.width,
-            photo.height,
+            photo.sizes,
             'c-category__media',
             imgClass,
           )
