@@ -1,0 +1,53 @@
+@use '../2-tools/mixins' as *;
+
+.c-page__menu {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+}
+
+.c-page__section {
+  margin-top: 64px;
+
+  @include mq(tablet) {
+    margin-top: 120px;
+  }
+}
+
+.c-page__section--categories {
+  margin-top: 96px;
+
+  @include mq(tablet) {
+    margin-top: 120px;
+  }
+
+  @include mq(desktop) {
+    margin-top: 128px;
+  }
+}
+
+.c-page__banner {
+  margin-top: 96px;
+
+  @include mq(tablet) {
+    margin-top: 120px;
+  }
+}
+
+.c-page__section--after-banner {
+  margin-top: 48px;
+
+  @include mq(tablet) {
+    margin-top: 56px;
+  }
+}
+
+.c-page__section--contacts {
+  margin-top: 104px;
+  padding-bottom: 64px;
+
+  @include mq(tablet) {
+    margin-top: 120px;
+    padding-bottom: 120px;
+  }
+}
