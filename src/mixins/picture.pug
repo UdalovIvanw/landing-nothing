@@ -1,8 +1,8 @@
-mixin picture(name, alt, width, height, sizes = '100vw', imgClass = '', isLcp = false)
-  - const basePath = '/images/' + name;
+mixin picture(name, alt, width, height, sizes='100vw', imgClass='', isLcp=false)
+  - const basePath = '/assets/images/' + name
   picture
-    source(srcset=`${basePath}.avif`, sizes=sizes, type='image/avif')
-    source(srcset=`${basePath}.webp`, sizes=sizes, type='image/webp')
+    source(srcset=`${basePath}.avif`, sizes=sizes, type="image/avif")
+    source(srcset=`${basePath}.webp`, sizes=sizes, type="image/webp")
     img(
       class=imgClass,
       src=`${basePath}.png`,
@@ -13,59 +13,59 @@ mixin picture(name, alt, width, height, sizes = '100vw', imgClass = '', isLcp = 
       fetchpriority=isLcp ? 'high' : null
     )
 
-mixin art-picture(sources, dimensions, alt, sizes = '100vw', pictureClass = '', imgClass = '', isLcp = false)
-  - const desk = '/images/' + sources.desktop;
-  - const tab = '/images/' + sources.tablet;
-  - const mob = '/images/' + sources.mobile;
+mixin art-picture(sources, dimensions, alt, sizes='100vw', pictureClass='', imgClass='', isLcp=false)
+  - const desk = '/assets/images/' + sources.desktop
+  - const tab = '/assets/images/' + sources.tablet
+  - const mob = '/assets/images/' + sources.mobile
   picture(class=pictureClass)
     source(
-      media='(min-width: 1260px)',
+      media="(min-width: 1260px)",
       srcset=`${desk}.avif`,
       sizes=sizes,
       width=dimensions.desktop.width,
       height=dimensions.desktop.height,
-      type='image/avif'
+      type="image/avif"
     )
     source(
-      media='(min-width: 1260px)',
+      media="(min-width: 1260px)",
       srcset=`${desk}.webp`,
       sizes=sizes,
       width=dimensions.desktop.width,
       height=dimensions.desktop.height,
-      type='image/webp'
+      type="image/webp"
     )
     source(
-      media='(min-width: 1260px)',
+      media="(min-width: 1260px)",
       srcset=`${desk}.png`,
       sizes=sizes,
       width=dimensions.desktop.width,
       height=dimensions.desktop.height
     )
     source(
-      media='(min-width: 744px)',
+      media="(min-width: 744px)",
       srcset=`${tab}.avif`,
       sizes=sizes,
       width=dimensions.tablet.width,
       height=dimensions.tablet.height,
-      type='image/avif'
+      type="image/avif"
     )
     source(
-      media='(min-width: 744px)',
+      media="(min-width: 744px)",
       srcset=`${tab}.webp`,
       sizes=sizes,
       width=dimensions.tablet.width,
       height=dimensions.tablet.height,
-      type='image/webp'
+      type="image/webp"
     )
     source(
-      media='(min-width: 744px)',
+      media="(min-width: 744px)",
       srcset=`${tab}.png`,
       sizes=sizes,
       width=dimensions.tablet.width,
       height=dimensions.tablet.height
     )
-    source(srcset=`${mob}.avif`, sizes=sizes, type='image/avif')
-    source(srcset=`${mob}.webp`, sizes=sizes, type='image/webp')
+    source(srcset=`${mob}.avif`, sizes=sizes, type="image/avif")
+    source(srcset=`${mob}.webp`, sizes=sizes, type="image/webp")
     img(
       class=imgClass,
       src=`${mob}.png`,

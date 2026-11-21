@@ -1,12 +1,14 @@
-nav.c-header(aria-label='Primary navigation')
+include ../data/navigation
+
+nav.c-header.c-hero__header(aria-label="Primary navigation")
   .o-container.c-header__inner
-    a.c-header__logo(href='#top', aria-label='Nothing home')
+    a.c-header__logo(href="#top", aria-label="Nothing home")
       include ../includes/Logo.svg
 
     .c-header__actions
-      a.c-header__phone(href='tel:+12345555555', aria-label='Call +1 234 555-55-55')
-        span.c-header__phone-text +1 234 555-55-55
+      a.c-header__phone(href=headerPhone.href, aria-label=`Call ${headerPhone.display}`)
+        span.c-header__phone-text= headerPhone.display
         include ../includes/Icon-Phone-call.svg
 
-      a.c-header__menu(href='#menu', aria-label='Open menu')
+      a.c-header__menu(href="#menu", aria-label="Open menu")
         include ../includes/Icon-Burger-menu.svg

@@ -1,0 +1,49 @@
+footer#contact.c-section.c-contacts.c-page__section.c-page__section--contacts
+    .o-container
+        h2.c-section__title Contact us
+        .o-grid.c-contacts__grid
+            form.c-contacts__form(action="mailto:hello@nothing.com", method="post", enctype="text/plain")
+                .c-field.c-contacts__field
+                    label.u-visually-hidden(for="contact-name") Name
+                    input#contact-name.c-field__control(
+                        type="text",
+                        name="name",
+                        placeholder="Name",
+                        autocomplete="name",
+                        required
+                    )
+                .c-field.c-contacts__field
+                    label.u-visually-hidden(for="contact-email") Email
+                    input#contact-email.c-field__control(
+                        type="email",
+                        name="email",
+                        placeholder="Email",
+                        autocomplete="email",
+                        required
+                    )
+                .c-field.c-contacts__field
+                    label.u-visually-hidden(for="contact-message") Message
+                    textarea#contact-message.c-field__control.c-field__control--textarea(
+                        name="message",
+                        placeholder="Message",
+                        required
+                    )
+                button.c-button.c-contacts__submit(type="submit") Send
+
+            address.c-contacts__info
+                ul.c-contacts__list
+                  each item in contactDetails
+                      li.c-contacts__block
+                          span.c-contacts__label= item.label
+                          a.c-contacts__value(
+                              href=item.href,
+                              target=item.external ? '_blank' : null,
+                              rel=item.external ? 'noopener noreferrer' : null
+                          )
+                              if item.lines
+                                each line, idx in item.lines
+                                    = line
+                                    if idx < item.lines.length - 1
+                                        br
+                              else
+                                  = item.value
