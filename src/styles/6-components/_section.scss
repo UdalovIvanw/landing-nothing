@@ -2,18 +2,19 @@
 @use '../2-tools/mixins' as *;
 
 .c-section__title {
-  margin-bottom: 48px;
+  margin-bottom: 44px;
   font-family: $font-heading;
   font-size: 32px;
   font-weight: 700;
   line-height: 1;
 
   @include mq(tablet) {
-    margin-bottom: 56px;
+    margin-bottom: 52px;
     font-size: 40px;
   }
 
   @include mq(desktop) {
+    margin-bottom: 55px;
     font-size: 48px;
   }
 }
